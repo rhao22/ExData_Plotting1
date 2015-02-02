@@ -9,12 +9,12 @@ end_date <-as.Date(strptime("02/02/2007", "%d/%m/%Y"))
 
 subset_dat <- dat[which((dat$Date==start_date) | (dat$Date==end_date)), ]
   
-plot(subset_dat$Time, subset_dat$Global_active_power,
+plot(subset_dat$Time, as.numeric(as.character(subset_dat$Global_active_power)),
      type="n",
      xlab="",
      ylab="Global Active Power (kilowatt)"
 )
-lines(subset_dat$Time, subset_dat$Global_active_power)
+lines(subset_dat$Time, as.numeric(as.character(subset_dat$Global_active_power)))
 
 
 dev.copy(png, file = "plot2.png")  ## Copy my plot to a PNG file

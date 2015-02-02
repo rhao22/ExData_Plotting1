@@ -8,11 +8,15 @@ end_date <-as.Date(strptime("02/02/2007", "%d/%m/%Y"))
 
 
 subset_dat <- dat[which((dat$Date==start_date) | (dat$Date==end_date)), ]
-  
+png(file = "plot3.png")  ## Open PDF device; create 'myplot.pdf' in my working directory
+
 plot(subset_dat$Time, as.numeric(as.character(subset_dat$Sub_metering_1)),
      type="n",
      xlab="",
-     ylab="Energy sub metering"
+     ylab="Energy sub metering",
+     width = 480, 
+     height = 480, 
+     units = "px"
 )
 lines(subset_dat$Time, as.numeric(as.character(subset_dat$Sub_metering_1)))
 lines(subset_dat$Time, as.numeric(as.character(subset_dat$Sub_metering_2)), col="red")
@@ -26,5 +30,6 @@ legend("topright",
        ) 
 
 
-dev.copy(png, file = "plot3.png")  ## Copy my plot to a PNG file
+#dev.copy(png, file = "plot3.png", width = 480, height = 480, units = "px")  ## Copy my plot to a PNG file
 dev.off()  ## Don't forget to close the PNG device!
+

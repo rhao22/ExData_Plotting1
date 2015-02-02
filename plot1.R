@@ -13,3 +13,5 @@ hist(as.numeric(as.character(subset_dat$Global_active_power)),
      xlab="Global Active Power (kilowatt)"
      )
 
+dev.copy(png, file = "plot1.png")  ## Copy my plot to a PNG file
+dev.off()  ## Don't forget to close the PNG device!
